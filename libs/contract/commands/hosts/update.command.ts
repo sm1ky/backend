@@ -40,9 +40,9 @@ export namespace UpdateHostCommand {
         path: z.optional(z.string()),
         sni: z.optional(z.string()),
         host: z.optional(z.string()),
-        alpn: z.optional(z.enum([ALPN_VALUES[0], ...ALPN_VALUES]).nullable()),
+        alpn: z.optional(z.enum([ALPN_VALUES[0], ...ALPN_VALUES.slice(1)]).nullable()),
         fingerprint: z.optional(
-            z.enum([FINGERPRINTS_VALUES[0], ...FINGERPRINTS_VALUES]).nullable(),
+            z.enum([FINGERPRINTS_VALUES[0], ...FINGERPRINTS_VALUES.slice(1)]).nullable(),
         ),
         allowInsecure: z.optional(z.boolean()),
         isDisabled: z.optional(z.boolean()),

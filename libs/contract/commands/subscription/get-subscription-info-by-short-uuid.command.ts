@@ -24,7 +24,7 @@ export namespace GetSubscriptionInfoByShortUuidCommand {
                 username: z.string(),
                 expiresAt: z.string().transform((str) => new Date(str)),
                 isActive: z.boolean(),
-                userStatus: z.enum([USERS_STATUS_VALUES[0], ...USERS_STATUS_VALUES]),
+                userStatus: z.enum([USERS_STATUS_VALUES[0], ...USERS_STATUS_VALUES.slice(1)]),
             }),
         }),
     });

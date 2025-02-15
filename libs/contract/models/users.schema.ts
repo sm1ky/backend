@@ -10,14 +10,16 @@ export const UsersSchema = z.object({
     username: z.string(),
 
     status: z
-        .enum([USERS_STATUS_VALUES[0], ...USERS_STATUS_VALUES])
+        .enum([USERS_STATUS_VALUES[0], ...USERS_STATUS_VALUES.slice(1)], {
+            description: 'Available user status'
+        })
         .default(USERS_STATUS_VALUES[0]),
 
     usedTrafficBytes: z.number(),
     lifetimeUsedTrafficBytes: z.number(),
     trafficLimitBytes: z.number().int().default(0),
     trafficLimitStrategy: z
-        .enum([RESET_PERIODS_VALUES[0], ...RESET_PERIODS_VALUES], {
+        .enum([RESET_PERIODS_VALUES[0], ...RESET_PERIODS_VALUES.slice(1)], {
             description: 'Available reset periods',
         })
         .default(RESET_PERIODS_VALUES[0]),
